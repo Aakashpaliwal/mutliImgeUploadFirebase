@@ -1,16 +1,15 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useEffect, useState } from 'react';
 import {
-  deleteObject,
+
   getDownloadURL,
   getStorage,
   ref,
-  uploadBytes,
   uploadBytesResumable,
 } from "firebase/storage";
 import { app } from "./firebase";
-import { Progress, Image, Col, Divider, Row } from 'antd';
+import { Progress, Image, Col, Row } from 'antd';
 
 function App() {
   const [files, setFiles] = useState([])
@@ -30,7 +29,6 @@ function App() {
     data.splice(data.length - 2, 2)
     console.log(data)
     setFiles(data)
-    // files.push(e.target.files)
   }
 
   const handleUploadFirebase = () => {
@@ -39,7 +37,6 @@ function App() {
 
     const promises = []
     files.map((file) => {
-      console.log(file)
       console.log('loop');
 
       const sotrageRef = ref(storage, `files/${file.name}`);
